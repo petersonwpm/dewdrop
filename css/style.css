@@ -668,7 +668,6 @@ h2 em {
   position: relative;
   z-index: 1;
   padding-block: clamp(58px, 8vw, 104px);
-  border-top: 1px solid var(--line);
   background:
     radial-gradient(70% 130% at 84% 46%, rgba(var(--accent-rgb), 0.18) 0%, rgba(var(--accent-rgb), 0) 64%),
     linear-gradient(180deg, rgba(var(--accent-rgb), 0.1) 0%, rgba(var(--accent-rgb), 0.02) 100%);
