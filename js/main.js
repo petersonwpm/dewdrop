@@ -172,6 +172,41 @@ function renderVoices() {
   `).join('');
 }
 
+function renderOfferBottles() {
+  const line = $('#offer-bottles');
+  if (!line) return;
+
+  line.innerHTML = DEWDROP_FLAVORS.map((flavor) => `
+    <svg class="bottle" viewBox="0 0 40 160" aria-hidden="true">
+      <defs>
+        <linearGradient id="bottle-grad-${flavor.id}" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="${flavor.colorDark}"/>
+          <stop offset="0.22" stop-color="${flavor.color}"/>
+          <stop offset="0.5" stop-color="${flavor.colorDark}"/>
+          <stop offset="0.78" stop-color="${flavor.color}"/>
+          <stop offset="1" stop-color="${flavor.colorDark}"/>
+        </linearGradient>
+      </defs>
+      <rect x="14" y="2" width="12" height="10" rx="2.5" fill="#373732"/>
+      <rect x="15.5" y="4" width="9" height="3" rx="1.5" fill="#807f76" opacity="0.75"/>
+      <path d="M15 11 C15 22 4 25 4 41 L4 139 C4 151 11 158 20 158 C29 158 36 151 36 139 L36 41 C36 25 25 22 25 11 Z" fill="url(#bottle-grad-${flavor.id})"/>
+      <path d="M9 38 C9 31 12 27 15 24 L15 149 C11 147 9 144 9 138 Z" fill="#ffffff" opacity="0.3"/>
+      <path d="M31 44 L31 136" stroke="#ffffff" stroke-width="1" opacity="0.18"/>
+      <rect x="7" y="66" width="26" height="22" rx="2" fill="#fbfaf6" opacity="0.94"/>
+      <text x="20" y="81" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="9" fill="${flavor.colorDark}">${flavor.number}</text>
+    </svg>
+  `).join('');
+}
+
+function setupOffer() {
+  const button = $('#add-offer');
+  if (!button) return;
+
+  button.addEventListener('click', () => {
+    addToPack(5, 'Tasting pack · 5 bottles');
+  });
+}
+
 function setupReveal() {
   const targets = $$('[data-reveal]');
 
@@ -307,6 +342,7 @@ function init() {
   renderFlavorList();
   renderMinerals();
   renderVoices();
+  renderOfferBottles();
 
   if (typeof DewDropCanvas === 'function' && $('#drops-canvas')) {
     canvasEngine = new DewDropCanvas('drops-canvas');
@@ -319,6 +355,7 @@ function init() {
   setupMenu();
   setupSound();
   setupPackOptions();
+  setupOffer();
   setupForm();
   setupCanTilt();
 

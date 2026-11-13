@@ -17,7 +17,8 @@ The point is not to reproduce the course's exact result. It is to see what a mod
 
 ## What's inside
 
-- A responsive single-page site: hero, flavour collection, mineral comparison, testimonials, subscription, and footer.
+- A responsive single-page site: hero, tasting-pack offer, flavour collection, mineral comparison, testimonials, subscription, and footer.
+- A sales offer below the hero: five 330 ml bottles for €10, connected to the pack counter.
 - Five flavours driven by a single data module. Selecting one retints the page, the can, and the ambient canvas.
 - A lightweight particle canvas with drifting droplets, mouse interaction, and flavour-reactive colour.
 - Optional synthesized sound (Web Audio API) with no audio files.
@@ -80,6 +81,8 @@ The build happened in two sessions:
 2. The second session read the existing work, kept its direction, and finished the markup, styling, rendering, and interaction layer. It was verified in headless Chromium at desktop and mobile sizes, including flavour switching, pack counter, menu, sound toggle, and form behaviour.
 
 That split is part of the experiment: an agent inheriting unfinished work must first understand what exists before adding to it.
+
+The tasting-pack section also follows the course's first hands-on challenge: add a sales section offering five bottles for ten. The price is kept in euros to match the rest of the page.
 
 ## Ideas for a next iteration
 
