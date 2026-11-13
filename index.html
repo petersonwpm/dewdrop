@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DewDrop — Flavoured Alpine Mineral Water</title>
+  <meta name="description" content="DewDrop is a softly sparkling alpine mineral water infused with cold-pressed fruit and hand-foraged botanicals. Zero sugar, organic botanicals, infinitely recyclable.">
+  <meta name="theme-color" content="#F7F6F2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Manrope:wght@300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 7 14.2 7 20a9 9 0 0 0 18 0C25 14.2 16 3 16 3Z' fill='%23E5A93C'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="canvas-wrap" aria-hidden="true">
+    <canvas id="drops-canvas"></canvas>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <a class="logo" href="#top" aria-label="DewDrop home">DewDrop<span class="logo-dot">.</span></a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#flavors">Flavours</a>
+      <a href="#minerals">Minerals</a>
+      <a href="#voices">Voices</a>
+      <a href="#subscribe">Subscribe</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="sound-toggle" aria-pressed="false" aria-label="Toggle ambient sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path class="wave wave-1" d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path class="wave wave-2" d="M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <a class="pack-btn" href="#subscribe">Pack <span id="pack-count" data-pack-count>0</span></a>
+
+      <button class="menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <a href="#flavors">Flavours</a>
+    <a href="#minerals">Minerals</a>
+    <a href="#voices">Voices</a>
+    <a href="#subscribe">Subscribe</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>Sparkling mineral water · Botanical infusions</p>
+        <h1 data-reveal>Water, with a <em>whisper</em> of wild botanicals.</h1>
+        <p class="lede" data-reveal>Glacial water, softly carbonated and infused with cold-pressed fruit and hand-foraged botanicals. Nothing added. Nothing to hide.</p>
+
+        <div class="hero-cta" data-reveal>
+          <a class="btn btn-primary" href="#flavors">Explore the flavours</a>
+          <a class="btn btn-ghost" href="#minerals">The minerality</a>
+        </div>
+
+        <ul class="hero-meta" data-reveal>
+          <li><strong>0g</strong> sugar</li>
+          <li><strong>5</strong> botanicals</li>
+          <li><strong>∞</strong> recyclable</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="can-stage" id="can-stage">
+          <div class="can-glow" aria-hidden="true"></div>
+          <div class="can" id="hero-can" role="img" aria-label="A can of DewDrop Yuzu & Mountain Mint">
+            <div class="can-rim"></div>
+            <div class="can-body">
+              <div class="can-label">
+                <span class="can-brand">DewDrop</span>
+                <span class="can-rule"></span>
+                <span class="can-flavor" id="hero-can-flavor">Yuzu &amp; Mountain Mint</span>
+                <span class="can-no" id="hero-can-no">No. 01</span>
+              </div>
+              <span class="can-sheen" aria-hidden="true"></span>
+            </div>
+            <div class="can-base"></div>
+          </div>
+          <div class="can-shadow" aria-hidden="true"></div>
+        </div>
+        <p class="can-caption">Matte aluminium · 330 ml</p>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Zero sugar</span><span class="ticker-drop">·</span>
+        <span>Organic botanicals</span><span class="ticker-drop">·</span>
+        <span>Glacial silica</span><span class="ticker-drop">·</span>
+        <span>Infinitely recyclable</span><span class="ticker-drop">·</span>
+        <span>Micro-effervescent</span><span class="ticker-drop">·</span>
+        <span>Alpine spring water</span><span class="ticker-drop">·</span>
+        <span>Zero sugar</span><span class="ticker-drop">·</span>
+        <span>Organic botanicals</span><span class="ticker-drop">·</span>
+        <span>Glacial silica</span><span class="ticker-drop">·</span>
+        <span>Infinitely recyclable</span><span class="ticker-drop">·</span>
+        <span>Micro-effervescent</span><span class="ticker-drop">·</span>
+        <span>Alpine spring water</span><span class="ticker-drop">·</span>
+      </div>
+    </div>
+
+    <section class="section flavors" id="flavors">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">The collection</p>
+          <h2>Five botanicals.<br><em>One impossibly soft bubble.</em></h2>
+          <p class="section-lede">Choose a pour. The water, the glass, and the room will follow.</p>
+        </div>
+
+        <div class="flavor-layout">
+          <div class="flavor-list" id="flavor-list" role="tablist" aria-label="DewDrop flavours" data-reveal></div>
+          <div class="flavor-panel" id="flavor-panel" data-reveal></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section minerals" id="minerals">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">The minerality</p>
+          <h2>Beneath the flavour,<br><em>a quiet geology.</em></h2>
+          <p class="section-lede">Great water is not neutral. It is balanced. Here is how DewDrop sits against the ordinary and the iconic.</p>
+        </div>
+
+        <div class="table-shell" data-reveal>
+          <table class="mineral-table">
+            <thead>
+              <tr>
+                <th scope="col">Mineral</th>
+                <th scope="col" class="is-dewdrop">DewDrop</th>
+                <th scope="col">Still water</th>
+                <th scope="col">San Pellegrino</th>
+                <th scope="col">LaCroix</th>
+                <th scope="col">Why it matters</th>
+              </tr>
+            </thead>
+            <tbody id="mineral-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section voices" id="voices">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Voices</p>
+          <h2>Poured at tables<br><em>that notice everything.</em></h2>
+        </div>
+        <div class="voice-grid" id="voice-grid"></div>
+      </div>
+    </section>
+
+    <section class="section subscribe" id="subscribe">
+      <div class="wrap">
+        <div class="subscribe-panel" data-reveal>
+          <div class="subscribe-copy">
+            <p class="eyebrow eyebrow-light">First pour</p>
+            <h2>Live lightly.<br><em>Sip slowly.</em></h2>
+            <p class="subscribe-lede">A rotating crate of seasonal infusions, delivered chilled-minded and carbon-negative. Pause or cancel whenever the mood turns still.</p>
+
+            <div class="pack-options" role="group" aria-label="Choose a crate">
+              <button class="pack-option" data-size="6" type="button">
+                <span class="pack-option-name">Discovery</span>
+                <span class="pack-option-meta">6 cans · €18</span>
+              </button>
+              <button class="pack-option is-active" data-size="12" type="button">
+                <span class="pack-option-name">Ritual</span>
+                <span class="pack-option-meta">12 cans · €32</span>
+              </button>
+            </div>
+          </div>
+
+          <form class="subscribe-form" id="subscribe-form">
+            <label for="email">Reserve your first crate</label>
+            <div class="field">
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+              <button class="btn btn-light" type="submit" id="reserve-btn">Reserve</button>
+            </div>
+            <p class="form-note">One quiet email a month. No noise, no sugar.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="logo" href="#top">DewDrop<span class="logo-dot">.</span></a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#flavors">Flavours</a>
+        <a href="#minerals">Minerals</a>
+        <a href="#voices">Voices</a>
+        <a href="#subscribe">Subscribe</a>
+      </nav>
+      <p class="footer-note">© <span id="year">2026</span> DewDrop Mineral Waters. Bottled at the source, never at the expense of it.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/flavors-data.js" defer></script>
+  <script src="js/canvas-drops.js" defer></script>
+  <script src="js/sound.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
